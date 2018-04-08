@@ -1,12 +1,15 @@
 --Config--
-simpleTax_maxTax = 25 -- The maximum percent that tax can be set to
-simpleTax_paydaysToNotify = 10 -- How many paydays before the user is reminded of /gettax. Set to 0 to disable
---End of Config-- --Dont edit the below variables-- GAMEMODE.Config.paydelay
+simpleTax_maxTax = 25 -- The maximum percent that tax can be set to.
+simpleTax_paydaysToNotify = 10 -- How many paydays before non-mayors are reminded of /gettax. Set to 0 to disable
+--End of Config-- --Dont edit the below variables--
 simpleTax_totalTax = 0
 simpleTax_taxToBePaid = 0
 simpleTax_notifyOnCooldown = false
 
 function getTaxCommand(ply, txt)
+	if simpleTax_maxTax > 100 then
+		simpleTax_maxTax = 100
+	end
 	local text = string.lower(txt)
 	if string.sub(text, 1, 7) == "/settax" or string.sub(text, 1, 7) == "!settax" then
 		if ply:isMayor() then
