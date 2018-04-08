@@ -38,7 +38,7 @@ end
 function getTax(ply, oldsalary) --Tax the citizens and give the money to the mayor
 	if simpleTax_totalTax != 0 then
 		if oldsalary != 0 then -- Jobs with no salary will get the default message
-			local tax = (((simpleTax_totalTax + 100) / 100) - (simpleTax_totalTax / 100) * 2) -- Add 100, divide by 100, then subtract original amount * 2
+			local tax = ((100 - simpleTax_totalTax) / 100) -- Turns value into decimal and inverts it (eg. 25 becoms 0.75)
 			if not ply:isMayor() then
 				local newsalary = math.floor(oldsalary * tax)
 				local taxedcash = math.floor(oldsalary - newsalary)
