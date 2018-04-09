@@ -18,7 +18,7 @@ function getTaxCommand(ply, txt)
 					simpleTax_totalTax = 0
 				elseif proposedTax > simpleTax_maxTax and simpleTax_maxTax <= 100 then
 					simpleTax_totalTax = math.floor(simpleTax_maxTax)
-				elseif proposedTax > simpleTax_maxTax and simpleTax_maxTax > 100 then
+				elseif proposedTax > 100 and simpleTax_maxTax > 100 then
 					simpleTax_totalTax = 100
 				else
 					simpleTax_totalTax = math.floor(proposedTax)
