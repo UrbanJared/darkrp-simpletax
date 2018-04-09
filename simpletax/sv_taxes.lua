@@ -59,7 +59,7 @@ function getTax(ply, oldsalary) --Tax the citizens and give the money to the may
 	end
 end
 function checkTeamChange(ply,oldteam,newteam) 
-	if oldteam == TEAM_MAYOR then -- Reset tax to 0 if mayor changes teams
+	if oldteam == TEAM_MAYOR and simpleTax_totalTax >= 1 then -- Reset tax to 0 if mayor changes teams
 		simpleTax_totalTax = 0
 		DarkRP.notifyAll(0, 4, "The mayor has changed teams and tax has been reset to 0%!")
 	elseif newteam == TEAM_MAYOR then -- Inform new mayors of the command
