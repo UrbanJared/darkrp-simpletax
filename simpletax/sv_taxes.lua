@@ -1,7 +1,6 @@
 --Config--
 simpleTax_maxTax = 25 -- The maximum percent that tax can be set to.
---End of Config--
---Dont edit anything below this line--
+--End of Config | Dont edit anything below this line--
 simpleTax_totalTax = 0
 simpleTax_taxToBePaid = 0
 simpleTax_notifyOnCooldown = false
@@ -41,8 +40,8 @@ function getTax(ply, oldsalary) --Tax the citizens and give the money to the may
 	if simpleTax_totalTax >= 1 and oldsalary >= 1 then -- Jobs with no salary will get the default message
 		local tax = ((100 - simpleTax_totalTax) / 100) -- Turns value into decimal and inverts it (eg. 25 becoms 0.75)
 		if not ply:isMayor() then
-			local newsalary = math.floor(oldsalary * tax)
-			local taxedcash = math.floor(oldsalary - newsalary)
+			local newsalary = math.Round(oldsalary * tax)
+			local taxedcash = oldsalary - newsalary
 			simpleTax_taxToBePaid = simpleTax_taxToBePaid + taxedcash
 			return false, "Payday! You recieved " .. DarkRP.formatMoney(newsalary) .. "! (" .. DarkRP.formatMoney(taxedcash) .. " paid in tax)", newsalary
 		else
