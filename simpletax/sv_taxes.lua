@@ -48,7 +48,7 @@ function getTax(ply, oldsalary) --Tax the citizens and give the money to the may
 		else
 			local mayorpay = oldsalary + simpleTax_taxToBePaid
 			simpleTax_taxToBePaid = 0
-			return false, "Payday! You recieved " .. DarkRP.formatMoney(mayorpay) .. " in tax and salary.", mayorpay
+			return false, "Payday! You recieved " .. DarkRP.formatMoney(mayorpay) .. "!", mayorpay
 		end
 	end
 end
