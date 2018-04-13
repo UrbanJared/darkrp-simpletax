@@ -3,7 +3,6 @@ simpleTax_maxTax = 25 -- The maximum percent that tax can be set to.
 --End of Config | Dont edit anything below this line--
 simpleTax_totalTax = 0
 simpleTax_taxToBePaid = 0
-simpleTax_notifyOnCooldown = false
 
 function getTaxCommand(ply, txt)
 	local text = string.lower(txt)
