@@ -1,6 +1,5 @@
 --Config--
 simpleTax_maxTax = 25 -- The maximum percent that tax can be set to.
-simpleTax_paydaysToNotify = 0 -- How many paydays before non-mayors are reminded of /gettax. Set to 0 to disable
 --End of Config--
 --Dont edit anything below this line--
 simpleTax_totalTax = 0
@@ -51,11 +50,6 @@ function getTax(ply, oldsalary) --Tax the citizens and give the money to the may
 			simpleTax_taxToBePaid = 0
 			return false, "Payday! You recieved " .. DarkRP.formatMoney(mayorpay) .. " in tax and salary.", mayorpay
 		end
-	end
-	if simpleTax_paydaysToNotify >= 1 and not simpleTax_notifyOnCooldown and simpleTax_totalTax >= 1 and not ply:isMayor() then -- Inform non mayors about /gettax
-		DarkRP.notify(ply, 0, 4, "Use !gettax or /gettax to see the current income tax.")
-		simpleTax_notifyOnCooldown = true
-		timer.Simple(GAMEMODE.Config.paydelay * simpleTax_paydaysToNotify, function() simpleTax_notifyOnCooldown = false end)
 	end
 end
 function checkTeamChange(ply,oldteam,newteam) 
