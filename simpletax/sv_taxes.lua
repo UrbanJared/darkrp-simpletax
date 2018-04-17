@@ -59,14 +59,15 @@ function checkTeamChange(ply,oldteam,newteam)
 	end
 end
 function changeMaxTax(ply,cmd,arg,argStr) 
-	if !ply:IsValid() or ply:IsAdmin() then
-		if tonumber(argStr) then
-			if tonumber(argStr) > 100 then
-				simpleTax_maxTax = 100
-			else
-				simpleTax_maxTax = math.floor(tonumber(argStr))
-			end
-			DarkRP.notifyAll(0,4,"Maximum tax is now " .. simpleTax_maxTax .. "%.")
+	if !ply:IsValid() or ply:IsAdmin() and tonumber(argStr) then
+		if tonumber(argStr) > 100 then
+			simpleTax_maxTax = 100
+		else
+			simpleTax_maxTax = math.floor(tonumber(argStr))
+		end
+		DarkRP.notifyAll(0,4,"Maximum tax is now " .. simpleTax_maxTax .. "%.")
+		if simpleTax_totalTax > simpleTax_maxTax then
+			simpleTax_totalTax = simpleTax_maxTax
 		end
 	end
 end
