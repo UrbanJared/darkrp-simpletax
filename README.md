@@ -5,4 +5,4 @@ Place simpletax folder in darkrpmodification\lua\darkrp_modules
 
 Console Commands:
 
-simpletax_maxtax <number> - Change maximum tax. Usable by admins or above.
+simpletax_maxtax [number] - Change maximum tax. Usable by admins or above.
